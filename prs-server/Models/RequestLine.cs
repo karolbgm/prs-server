@@ -9,7 +9,7 @@ public class RequestLine
 
     //FK
     public int RequestId { get; set; }
-    [JsonIgnore]
+    [JsonIgnore] //if you don't add this, this will pull the request and the request will pull lines which will pull request...
     public virtual Request? Request { get; set; }
 
     public int ProductId { get; set; }
