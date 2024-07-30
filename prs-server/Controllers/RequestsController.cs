@@ -63,7 +63,7 @@ namespace prs_server.Controllers
 
         public async Task<ActionResult<IEnumerable<Request>>> GetReviews(int userId)
         {
-            return await _context.Requests.Where(x => x.Status == "REVIEW" && x.UserId != userId).ToListAsync();
+            return await _context.Requests.Where(x => x.Status == "REVIEW" && x.UserId != userId).Include(x => x.User).ToListAsync();
         }
 
         //GET REQUESTS BY STATUS - GET: /api/requests/status/{status}
